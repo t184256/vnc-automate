@@ -1,0 +1,10 @@
+setuptools>=18.0
+#cython
+numpy
+Pillow
+scipy
+Twisted
+typing; python_version < "3.5"
+vncdotool>=1.2.0
+lxml
+PyYAML

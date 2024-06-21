@@ -79,6 +79,7 @@ class VNCAutomateClient(VNCDoToolClient):
         VNCDoToolClient.__init__(self)
         self.ocr_algo = OCRAlgorithm()
         self.log = logging.getLogger(__name__)
+        self.wait = True
 
     def updateOCRConfig(self, *args, **kwargs):
         # type: (*OCRConfig, **str) -> VNCAutomateClient
@@ -93,6 +94,7 @@ class VNCAutomateClient(VNCDoToolClient):
     def _find_text(self, text, timeout=0, wait=True, _state=None):
         # type: (str, int, bool, Optional[State]) -> Deferred
         state = _state or State()
+        self.wait = wait
 
         def _run_ocr(_):
             # type: (None) -> Union[Tuple[int, int], Deferred]
@@ -112,6 +114,8 @@ class VNCAutomateClient(VNCDoToolClient):
             if click_point is not None:
                 self.log.info("Found %r [%.1f sec]", text, state.duration())
                 return click_point
+            if not self.wait:
+                return None
 
             return again()
 

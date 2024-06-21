@@ -4,7 +4,9 @@
 
 from setuptools import Extension, setup
 
+
 setup(
+    version='2.0.0',
     ext_modules=[
         Extension(
             "vncautomate.segment_line",

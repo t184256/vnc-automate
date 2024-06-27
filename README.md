@@ -41,11 +41,12 @@ pip install sshtunnel pytest
 pip install '<build_dir>/dist/vnc_automate-2.0.0-cp311-cp311-linux_x86_64.whl'
 ```
 
-For the example to work, the Windows machine under test must have SSH and VNC-server setup. The example expects to 
-authenticate to SSH with the Windows credentials, the same as used to log in on the Windows desktop.
-VNC-server on Windows shoeld NOT expect any authentication, which alright since it should just listen on localhost.
-
 ## Pytest example
+
+For the example to work, the Windows machine under test must have SSH and VNC-server setup:
+- The example expects to authenticate to SSH with the Windows credentials, the same credentials as used to log in on the Windows desktop.
+- It starts an ssh-tunnel to `localhost:5900` on the Windows host to connect to VNC.
+- VNC-server on Windows should NOT expect any authentication, which alright since it should listen on localhost only.
 
 ```python
 import os

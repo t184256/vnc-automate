@@ -4,7 +4,6 @@ Programmatic interface for VNC.
 
 Suitable for GUI testing over a VNC-connection.
 
-_[TOC]_
 
 This project is forked from [vnc-automate](https://github.com/univention/vnc-automate.git).
 Some code from [univention-corporate-server](https://github.com/univention/univention-corporate-server/tree/5.2-0) has 

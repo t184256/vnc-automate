@@ -3,16 +3,17 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 
 from setuptools import Extension, setup
+from Cython.Build import cythonize
+import numpy
 
 
 setup(
-    version='2.0.0',
-    ext_modules=[
+    ext_modules=cythonize([
         Extension(
             "vncautomate.segment_line",
             sources=["src/vncautomate/segment_line.pyx"],
             language="c++",
+            include_dirs=[numpy.get_include()],
         ),
-    ],
-    test_suite="tests",
+    ]),
 )

@@ -1,0 +1,61 @@
+[build-system]
+requires = [
+    "setuptools>=18.0",
+    "cython",
+    "numpy",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vnc-automate"
+version = "2.0.0"
+authors = [{name = "Univention GmbH", email = "packages@univention.de"}]
+description = "GUI test framework for Python"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Software Development :: Testing",
+]
+license = {text = "GNU Affero General Public License v3"}
+dependencies = [
+    "numpy",
+    "Pillow",
+    "scipy",
+    "Twisted",
+    "vncdotool>=1.2.0",
+    "lxml",
+    "PyYAML",
+]
+
+[project.readme]
+file = "README.md"
+content-type = '"text/markdown"'
+
+[project.urls]
+Homepage = "https://git.knut.univention.de/univention/vnc-automate/"
+
+[project.scripts]
+vnc-automate = "vncautomate.cli:main"
+
+[tool.setuptools]
+zip-safe = false
+# scripts =
+package-dir = {"" = "src"}
+packages = ["vncautomate"]
+# tests_require =
+# test_suite =
+platforms = ["any"]
+license-files = ["debian/copyright"]
+include-package-data = false
+#py-modules = ["_custom_build"]
+#
+#[tool.setuptools.cmdclass]
+#build_py = "_custom_build.build_py"
